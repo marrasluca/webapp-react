@@ -1,11 +1,15 @@
-export default function ReviewCard(){
+export default function ReviewCard({review}){
+
+    const { id, movie_id, name, vote, text } = review
     return(
         <>
          <div className="card mb-4">
             <div className="card-body">
+                <h5>{name}</h5>
                 <p className="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, explicabo corrupti praesentium laudantium optio labore aspernatur aliquid ratione in, repellat, atque corporis ducimus ex repellendus ullam. Assumenda quos ipsam eveniet.
+                {text}
                 </p>
+                <span>Voto: {vote}</span>
             </div>
          </div>
         </>
