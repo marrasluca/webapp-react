@@ -18,19 +18,18 @@ const fetchBook = () => {
 useEffect( fetchBook, [id]);
 
 const renderReviews = () => {
-    return(
-        movie.reviews.map((reviews) => {
-            return(
-                <ReviewCard key={reviews.id} review={review}/>
-            )
-        })
+    return  movie.reviews?.map((review) => {
+    return <ReviewCard key={review.id} review={review}/>;
+            
+        });
 
-    )
-}
+    
+};
 
     return(
             <>
             <h1>{movie.title}</h1>
+            <img src={movie?.image} alt={movie?.title}/>
                 <section>
                     <h4>Reviews</h4>
                     {renderReviews()}
