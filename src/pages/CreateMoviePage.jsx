@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
-import { Navigate, Link } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 export default function CreateMoviePage(){
 
@@ -9,10 +9,12 @@ const initialData = {
     author: "",
     image: null,
     abstract: ""
-}
+};
+
+const navigate = useNavigate();
 
 
-const [ formData, setFormData ] = useState(initialData)
+const [ formData, setFormData ] = useState(initialData);
 
 const setFieldValue = (e) => {
     const { name, value } = e.target
@@ -41,10 +43,10 @@ const handleSubmit = (e) => {
             "Content-Type": "multipart/form-data"
         }
     } )
-    .then( () => Navigate("/") )
+    .then( () => navigate("/") )
     .catch( (err) => console.log(err) );
 }
-}
+
 return(
     <>
   <h1>Qui andrà il form</h1>
@@ -100,3 +102,4 @@ return(
             </form>
     </>
 );
+}
